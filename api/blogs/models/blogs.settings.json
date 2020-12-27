@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "name": "blogs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "cn"
+      ],
+      "default": "en",
+      "required": true
+    },
+    "tags": {
+      "collection": "tags"
+    }
+  }
+}

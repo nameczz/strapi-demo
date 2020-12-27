@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "docs",
+  "info": {
+    "name": "docs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "unique": true
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "cn"
+      ],
+      "default": "en",
+      "required": true,
+      "unique": false
+    }
+  }
+}
