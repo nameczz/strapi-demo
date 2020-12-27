@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/docs": {
+    "/versions": {
       "get": {
         "deprecated": false,
-        "description": "Find all the docs's records",
+        "description": "Find all the versions's records",
         "responses": {
           "200": {
-            "description": "Retrieve docs document(s)",
+            "description": "Retrieve versions document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Docs"
+                    "$ref": "#/components/schemas/Versions"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Docs"
+          "Versions"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new docs record",
+        "description": "Create a new versions record",
         "responses": {
           "200": {
-            "description": "Retrieve docs document(s)",
+            "description": "Retrieve versions document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Docs"
+                  "$ref": "#/components/schemas/Versions"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Docs"
+          "Versions"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDocs"
+                "$ref": "#/components/schemas/NewVersions"
               }
             }
           }
         }
       }
     },
-    "/docs/count": {
+    "/versions/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of docs documents",
+        "description": "Retrieve the numver of versions documents",
         "responses": {
           "200": {
-            "description": "Retrieve docs document(s)",
+            "description": "Retrieve versions document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Docs"
+          "Versions"
         ],
         "parameters": []
       }
     },
-    "/docs/{id}": {
+    "/versions/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one docs record",
+        "description": "Find one versions record",
         "responses": {
           "200": {
-            "description": "Retrieve docs document(s)",
+            "description": "Retrieve versions document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Docs"
+                  "$ref": "#/components/schemas/Versions"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Docs"
+          "Versions"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single docs record",
+        "description": "Update a single versions record",
         "responses": {
           "200": {
-            "description": "Retrieve docs document(s)",
+            "description": "Retrieve versions document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Docs"
+                  "$ref": "#/components/schemas/Versions"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Docs"
+          "Versions"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDocs"
+                "$ref": "#/components/schemas/NewVersions"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single docs record",
+        "description": "Delete a single versions record",
         "responses": {
           "200": {
-            "description": "deletes a single docs based on the ID supplied",
+            "description": "deletes a single versions based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Docs"
+          "Versions"
         ],
         "parameters": [
           {
@@ -514,54 +514,19 @@
   },
   "components": {
     "schemas": {
-      "Docs": {
+      "Versions": {
         "required": [
-          "id",
-          "title",
-          "language"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "title": {
+          "name": {
             "type": "string"
           },
-          "content": {
-            "type": "string"
-          },
-          "language": {
-            "type": "string",
-            "default": "en",
-            "enum": [
-              "en",
-              "cn"
-            ]
-          },
-          "version": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "variables": {
-                "type": "object"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "variables": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -569,28 +534,13 @@
           }
         }
       },
-      "NewDocs": {
-        "required": [
-          "title",
-          "language"
-        ],
+      "NewVersions": {
         "properties": {
-          "title": {
+          "name": {
             "type": "string"
           },
-          "content": {
-            "type": "string"
-          },
-          "language": {
-            "type": "string",
-            "default": "en",
-            "enum": [
-              "en",
-              "cn"
-            ]
-          },
-          "version": {
-            "type": "string"
+          "variables": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -608,7 +558,7 @@
   },
   "tags": [
     {
-      "name": "Docs"
+      "name": "Versions"
     }
   ]
 }
